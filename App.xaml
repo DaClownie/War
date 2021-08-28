@@ -1,0 +1,11 @@
+﻿<Application x:Class="War.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:War"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+		<Color x:Key="Slate">#FF212A36</Color>
+		<Color x:Key="LightSlate">#FF37465B</Color>
+	</Application.Resources>
+</Application>

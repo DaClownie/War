@@ -1,0 +1,123 @@
+﻿<Window x:Class="War.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:War"
+        mc:Ignorable="d"
+        Title="WAR Simulator" 
+		Height="600"
+		Width="1000"
+		ResizeMode="NoResize"
+		WindowStyle="None" 
+		Background="#37465B">
+	<Grid>
+		<!-- Initial layout definitions -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		
+		<!--Window Bar containing name/navigation/close/minimize -->
+		<Grid Background="#212A36"
+			   Grid.ColumnSpan="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="WAR Simulator"
+					   Foreground="White"
+					   Grid.Column="0"
+					   Grid.ColumnSpan="2"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   FontFamily="Fonts/#Karla"
+					   FontWeight="Medium"
+					   FontSize="18"/>
+
+			<TextBlock Text="Config"
+					   Foreground="LightGray"
+					   Grid.Column="3"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   FontFamily="Fonts/#Karla"
+					   FontWeight="Light"
+					   FontSize="16"/>
+
+			<TextBlock Text="Results"
+					   Foreground="LightGray"
+					   Grid.Column="5"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   FontFamily="Fonts/#Karla"
+					   FontWeight="Light"
+					   FontSize="16"/>
+
+			<TextBlock Text="GitHub"
+					   Foreground="LightGray"
+					   Grid.Column="7"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Center"
+					   FontFamily="Fonts/#Karla"
+					   FontWeight="Light"
+					   FontSize="18"/>
+
+			<StackPanel Grid.Column="12"
+						Grid.ColumnSpan="2"
+						Orientation="Horizontal"
+						HorizontalAlignment="Right"
+						Margin="0,5,0,5">
+
+				<Button x:Name="TopRightMinimize" 
+							Background="#212A36"
+							Foreground="White"
+							FontFamily="Fonts/#Karla"
+							FontSize="20"
+							FontWeight="Heavy"
+							BorderThickness="2"
+							Margin="0,0,5,0"
+							Width="30"
+							Height="30">
+					<Button.Content>
+						_
+					</Button.Content>
+				</Button>
+				<Button x:Name="TopRightClose" 
+						Background="#212A36"
+						Foreground="White"
+						FontFamily="Fonts/#Karla"
+						FontSize="20"
+						FontWeight="Heavy"
+						BorderThickness="2"
+						Margin="0,0,5,0"
+						Width="30"
+						Height="30">
+					<Button.Content>
+						X
+					</Button.Content>
+				</Button>
+			</StackPanel>
+
+
+		</Grid>
+		
+		
+	</Grid>
+</Window>
