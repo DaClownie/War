@@ -54,7 +54,8 @@
 
 			<TextBlock Text="Config"
 					   Foreground="LightGray"
-					   Grid.Column="3"
+					   Grid.Column="2"
+					   Grid.ColumnSpan="2"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
 					   FontFamily="Fonts/#Karla"
@@ -63,7 +64,8 @@
 
 			<TextBlock Text="Results"
 					   Foreground="LightGray"
-					   Grid.Column="5"
+					   Grid.Column="4"
+					   Grid.ColumnSpan="2"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
 					   FontFamily="Fonts/#Karla"
@@ -72,7 +74,8 @@
 
 			<TextBlock Text="GitHub"
 					   Foreground="LightGray"
-					   Grid.Column="7"
+					   Grid.Column="11"
+					   Grid.ColumnSpan="2"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
 					   FontFamily="Fonts/#Karla"
@@ -114,10 +117,19 @@
 					</Button.Content>
 				</Button>
 			</StackPanel>
-
-
 		</Grid>
-		
-		
+
+
+		<StackPanel Grid.Row="2"
+					Grid.Column="0">
+			<Label>Left Stack panel</Label>
+
+		</StackPanel>
+		<StackPanel Grid.Row="2"
+					Grid.Column="1">
+			<Label>Right Stack panel</Label>
+
+		</StackPanel>
+
 	</Grid>
 </Window>
