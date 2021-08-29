@@ -3,8 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:War"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
+	<Application.Resources>
+		<Style x:Key="buttonStyle" TargetType="{x:Type Button}">
+			<Style.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background" Value="#37465B"/>
+					<Setter Property="Foreground" Value="Black"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
 		<Color x:Key="Slate">#FF212A36</Color>
 		<Color x:Key="LightSlate">#FF37465B</Color>
 	</Application.Resources>

@@ -27,5 +27,21 @@ namespace War
 
 
 		}
+
+		private void MinimizeOnClick(object sender, RoutedEventArgs e)
+		{
+			this.WindowState = WindowState.Minimized;
+		}
+
+		private void CloseOnClick(object sender, RoutedEventArgs e)
+		{
+			//TODO: Needs something to save the current values as new default values?
+			Application.Current.Shutdown();
+		}
+
+		private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			this.DragMove();
+		}
 	}
 }

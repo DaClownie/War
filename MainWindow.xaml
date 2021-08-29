@@ -10,7 +10,8 @@
 		Width="1000"
 		ResizeMode="NoResize"
 		WindowStyle="None" 
-		Background="#37465B">
+		Background="#37465B" 
+		WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
 	<Grid>
 		<!-- Initial layout definitions -->
 		<Grid.RowDefinitions>
@@ -52,35 +53,44 @@
 					   FontWeight="Medium"
 					   FontSize="18"/>
 
-			<TextBlock Text="Config"
+			<Button    Content="Config"
 					   Foreground="LightGray"
+					   Background="#212A36"
+					   BorderThickness="0"
 					   Grid.Column="2"
 					   Grid.ColumnSpan="2"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
 					   FontFamily="Fonts/#Karla"
 					   FontWeight="Light"
-					   FontSize="16"/>
+					   FontSize="16"
+					   Padding="5"/>
 
-			<TextBlock Text="Results"
+			<Button	   Content="Results"
 					   Foreground="LightGray"
+					   Background="#212A36"
+					   BorderThickness="0"
 					   Grid.Column="4"
 					   Grid.ColumnSpan="2"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
 					   FontFamily="Fonts/#Karla"
 					   FontWeight="Light"
-					   FontSize="16"/>
+					   FontSize="16"
+					   Padding="5"/>
 
-			<TextBlock Text="GitHub"
+			<Button    Content="GitHub"
 					   Foreground="LightGray"
+					   Background="#212A36"
+					   BorderThickness="0"
 					   Grid.Column="11"
 					   Grid.ColumnSpan="2"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
 					   FontFamily="Fonts/#Karla"
 					   FontWeight="Light"
-					   FontSize="18"/>
+					   FontSize="18"
+					   Padding="5"/>
 
 			<StackPanel Grid.Column="12"
 						Grid.ColumnSpan="2"
@@ -89,15 +99,17 @@
 						Margin="0,5,0,5">
 
 				<Button x:Name="TopRightMinimize" 
-							Background="#212A36"
-							Foreground="White"
-							FontFamily="Fonts/#Karla"
-							FontSize="20"
-							FontWeight="Heavy"
-							BorderThickness="2"
-							Margin="0,0,5,0"
-							Width="30"
-							Height="30">
+						Background="#212A36"
+						Foreground="White"
+						FontFamily="Fonts/#Karla"
+						FontSize="20"
+						FontWeight="Heavy"
+						BorderThickness="2"
+						Margin="0,0,5,0"
+						Width="30"
+						Height="30"	
+						Click="MinimizeOnClick"
+						IsTabStop="False">
 					<Button.Content>
 						_
 					</Button.Content>
@@ -111,7 +123,23 @@
 						BorderThickness="2"
 						Margin="0,0,5,0"
 						Width="30"
-						Height="30">
+						Height="30" 
+						Click="CloseOnClick"
+						IsTabStop="False">
+					<Button.Style>
+						<Style TargetType="{x:Type Button}">
+							<Style.Triggers>
+								<Trigger Property="IsMouseOver" Value="True">
+									<Setter Property="Background" Value="#37465B"/>
+									<Setter Property="Foreground" Value="Black"/>
+								</Trigger>
+								<Trigger Property="IsMouseOver" Value="False">
+									<Setter Property="Background" Value="#212A36"/>
+									<Setter Property="Foreground" Value="White"/>
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+					</Button.Style>
 					<Button.Content>
 						X
 					</Button.Content>
