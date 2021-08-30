@@ -10,7 +10,25 @@
 					<Setter Property="Background" Value="#37465B"/>
 					<Setter Property="Foreground" Value="Black"/>
 				</Trigger>
+				<Trigger Property="IsMouseOver" Value="False">
+					<Setter Property="Background" Value="#212A36"/>
+					<Setter Property="Foreground" Value="LightGray"/>
+				</Trigger>
 			</Style.Triggers>
+		</Style>
+		<Style x:Key="headerFont" TargetType="Label">
+			<Setter Property="FontFamily" Value="Fonts\#Karla"/>
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="FontWeight" Value="Medium"/>
+			<Setter Property="FontStretch" Value="Expanded"/>
+			<Setter Property="Foreground" Value="LightGray"/>
+		</Style>
+		<Style x:Key="subHeaderFont" TargetType="Label">
+			<Setter Property="FontFamily" Value="Fonts\#Karla"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="FontWeight" Value="Medium"/>
+			<Setter Property="FontStretch" Value="Expanded"/>
+			<Setter Property="Foreground" Value="LightGray"/>
 		</Style>
 		<Color x:Key="Slate">#FF212A36</Color>
 		<Color x:Key="LightSlate">#FF37465B</Color>

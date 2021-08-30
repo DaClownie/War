@@ -12,6 +12,21 @@
 		WindowStyle="None" 
 		Background="#37465B" 
 		WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown">
+	<!--<Window.Resources>
+		<ControlTemplate x:Key="ButtonEffects" TargetType="{x:Type Button}">
+			<ControlTemplate.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background" Value="#37465B"/>
+					<Setter Property="Foreground" Value="Black"/>
+				</Trigger>
+				<Trigger Property="IsMouseOver" Value="False">
+					<Setter Property="Background" Value="#212A36"/>
+					<Setter Property="Foreground" Value="LightGray"/>
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Window.Resources>-->
+	
 	<Grid>
 		<!-- Initial layout definitions -->
 		<Grid.RowDefinitions>
@@ -22,7 +37,7 @@
 			<ColumnDefinition/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		
+
 		<!--Window Bar containing name/navigation/close/minimize -->
 		<Grid Background="#212A36"
 			   Grid.ColumnSpan="2">
@@ -54,8 +69,6 @@
 					   FontSize="18"/>
 
 			<Button    Content="Config"
-					   Foreground="LightGray"
-					   Background="#212A36"
 					   BorderThickness="0"
 					   Grid.Column="2"
 					   Grid.ColumnSpan="2"
@@ -64,11 +77,10 @@
 					   FontFamily="Fonts/#Karla"
 					   FontWeight="Light"
 					   FontSize="16"
-					   Padding="5"/>
+					   Padding="5"
+					   Style="{StaticResource buttonStyle}"/>
 
 			<Button	   Content="Results"
-					   Foreground="LightGray"
-					   Background="#212A36"
 					   BorderThickness="0"
 					   Grid.Column="4"
 					   Grid.ColumnSpan="2"
@@ -77,11 +89,10 @@
 					   FontFamily="Fonts/#Karla"
 					   FontWeight="Light"
 					   FontSize="16"
-					   Padding="5"/>
+					   Padding="5"
+					   Style="{StaticResource buttonStyle}"/>
 
 			<Button    Content="GitHub"
-					   Foreground="LightGray"
-					   Background="#212A36"
 					   BorderThickness="0"
 					   Grid.Column="11"
 					   Grid.ColumnSpan="2"
@@ -90,7 +101,8 @@
 					   FontFamily="Fonts/#Karla"
 					   FontWeight="Light"
 					   FontSize="18"
-					   Padding="5"/>
+					   Padding="5"
+					   Style="{StaticResource buttonStyle}"/>
 
 			<StackPanel Grid.Column="12"
 						Grid.ColumnSpan="2"
@@ -98,9 +110,7 @@
 						HorizontalAlignment="Right"
 						Margin="0,5,0,5">
 
-				<Button x:Name="TopRightMinimize" 
-						Background="#212A36"
-						Foreground="White"
+				<Button x:Name="TopRightMinimize"
 						FontFamily="Fonts/#Karla"
 						FontSize="20"
 						FontWeight="Heavy"
@@ -109,14 +119,13 @@
 						Width="30"
 						Height="30"	
 						Click="MinimizeOnClick"
-						IsTabStop="False">
+						IsTabStop="False"
+						Style="{StaticResource buttonStyle}">
 					<Button.Content>
 						_
 					</Button.Content>
 				</Button>
 				<Button x:Name="TopRightClose" 
-						Background="#212A36"
-						Foreground="White"
 						FontFamily="Fonts/#Karla"
 						FontSize="20"
 						FontWeight="Heavy"
@@ -125,21 +134,8 @@
 						Width="30"
 						Height="30" 
 						Click="CloseOnClick"
-						IsTabStop="False">
-					<Button.Style>
-						<Style TargetType="{x:Type Button}">
-							<Style.Triggers>
-								<Trigger Property="IsMouseOver" Value="True">
-									<Setter Property="Background" Value="#37465B"/>
-									<Setter Property="Foreground" Value="Black"/>
-								</Trigger>
-								<Trigger Property="IsMouseOver" Value="False">
-									<Setter Property="Background" Value="#212A36"/>
-									<Setter Property="Foreground" Value="White"/>
-								</Trigger>
-							</Style.Triggers>
-						</Style>
-					</Button.Style>
+						IsTabStop="False"
+						Style="{StaticResource buttonStyle}">
 					<Button.Content>
 						X
 					</Button.Content>
@@ -149,14 +145,92 @@
 
 
 		<StackPanel Grid.Row="2"
-					Grid.Column="0">
-			<Label>Left Stack panel</Label>
+					Grid.Column="0"
+					Margin="10">
+			<Label Style="{StaticResource headerFont}">Input Options:</Label>
+			<StackPanel>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="2*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50"/>
+						<RowDefinition Height="50"/>
+					</Grid.RowDefinitions>
 
+					<Label Grid.Row="0"
+						   Grid.Column="0"
+						   VerticalAlignment="Center"
+						   HorizontalAlignment="Right"
+						   Style="{StaticResource subHeaderFont}">
+						Number of Games:
+					</Label>
+					<TextBox Grid.Row="0"
+							 Grid.Column="1"
+							 VerticalAlignment="Center"
+							 HorizontalAlignment="Stretch"
+							 Margin="10">
+					</TextBox>
+
+					<Label Grid.Row="1"
+						   Grid.Column="0"
+						   VerticalAlignment="Center"
+						   HorizontalAlignment="Right"
+						   Style="{StaticResource subHeaderFont}">
+						Jokers wild?:
+					</Label>
+					<CheckBox Grid.Row="1"
+							  Grid.Column="1"
+							  VerticalAlignment="Center"
+							  Margin="10" RenderTransformOrigin="0.5,0.5"/>
+				</Grid>
+			</StackPanel>
+			<StackPanel>
+				<Expander HorizontalContentAlignment="Stretch">
+					<Expander.Header>
+						<BulletDecorator>
+							<Label Margin="20,0,0,0"
+								   Style="{StaticResource subHeaderFont}">
+								Custom Rules
+							</Label>
+						</BulletDecorator>
+					</Expander.Header>
+					<Expander.Content>
+						<StackPanel>
+							<TextBlock TextWrapping="Wrap"
+									   Margin="0,0,0,10">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel enim id odio semper imperdiet quis non ipsum. Curabitur vel risus tempor, vulputate leo eu, blandit erat. Phasellus rutrum ut nisl volutpat rutrum. Vivamus finibus pulvinar justo in dignissim. In fermentum dui quis mauris laoreet porta. Suspendisse tincidunt elit fringilla eros varius facilisis. Morbi sed dignissim mi. Mauris ultricies nec dui nec euismod. Phasellus vel neque elit. Praesent tincidunt ultrices orci, id fermentum enim scelerisque vitae.
+							</TextBlock>
+							<TextBlock TextWrapping="Wrap"
+									   Margin="0,0,0,10">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel enim id odio semper imperdiet quis non ipsum. Curabitur vel risus tempor, vulputate leo eu, blandit erat. Phasellus rutrum ut nisl volutpat rutrum. Vivamus finibus pulvinar justo in dignissim. In fermentum dui quis mauris laoreet porta. Suspendisse tincidunt elit fringilla eros varius facilisis. Morbi sed dignissim mi. Mauris ultricies nec dui nec euismod. Phasellus vel neque elit. Praesent tincidunt ultrices orci, id fermentum enim scelerisque vitae.
+							</TextBlock>
+							<TextBlock TextWrapping="Wrap"
+									   Margin="0,0,0,10">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel enim id odio semper imperdiet quis non ipsum. Curabitur vel risus tempor, vulputate leo eu, blandit erat. Phasellus rutrum ut nisl volutpat rutrum. Vivamus finibus pulvinar justo in dignissim. In fermentum dui quis mauris laoreet porta. Suspendisse tincidunt elit fringilla eros varius facilisis. Morbi sed dignissim mi. Mauris ultricies nec dui nec euismod. Phasellus vel neque elit. Praesent tincidunt ultrices orci, id fermentum enim scelerisque vitae.
+							</TextBlock>
+							<TextBlock TextWrapping="Wrap"
+									   Margin="0,0,0,10">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel enim id odio semper imperdiet quis non ipsum. Curabitur vel risus tempor, vulputate leo eu, blandit erat. Phasellus rutrum ut nisl volutpat rutrum. Vivamus finibus pulvinar justo in dignissim. 
+							</TextBlock>
+						</StackPanel>
+					</Expander.Content>
+				</Expander>
+			</StackPanel>
 		</StackPanel>
 		<StackPanel Grid.Row="2"
-					Grid.Column="1">
-			<Label>Right Stack panel</Label>
-
+					Grid.Column="1"
+					Margin="10">
+			<Label Style="{StaticResource headerFont}">Output Options:</Label>
+			<StackPanel>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="3*"/>
+					</Grid.ColumnDefinitions>
+				</Grid>
+			</StackPanel>
 		</StackPanel>
 
 	</Grid>
