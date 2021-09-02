@@ -68,41 +68,46 @@
 					   FontWeight="Medium"
 					   FontSize="18"/>
 
-			<Button    Content="Config"
-					   BorderThickness="0"
-					   Grid.Column="2"
-					   Grid.ColumnSpan="2"
-					   VerticalAlignment="Center"
-					   HorizontalAlignment="Center"
-					   FontFamily="Fonts/#Karla"
-					   FontWeight="Light"
-					   FontSize="16"
-					   Padding="5"
-					   Style="{StaticResource buttonStyle}"/>
+			<Button x:Name="ConfigButton"
+					Content="Config"
+					BorderThickness="0"
+					Grid.Column="2"
+					Grid.ColumnSpan="2"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					FontFamily="Fonts/#Karla"
+					FontWeight="Light"
+					FontSize="16"
+					Padding="5"
+					Style="{StaticResource buttonStyle}"/>
 
-			<Button	   Content="Results"
-					   BorderThickness="0"
-					   Grid.Column="4"
-					   Grid.ColumnSpan="2"
-					   VerticalAlignment="Center"
-					   HorizontalAlignment="Center"
-					   FontFamily="Fonts/#Karla"
-					   FontWeight="Light"
-					   FontSize="16"
-					   Padding="5"
-					   Style="{StaticResource buttonStyle}"/>
+			<Button x:Name="SimulateButton"
+					Content="Simulate!"
+					BorderThickness="0"
+					Grid.Column="4"
+					Grid.ColumnSpan="2"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					FontFamily="Fonts/#Karla"
+					FontWeight="Light"
+					FontSize="16"
+					Padding="5"
+					Style="{StaticResource buttonStyle}"
+					Click="SimulateButton_Click" />
 
-			<Button    Content="GitHub"
-					   BorderThickness="0"
-					   Grid.Column="11"
-					   Grid.ColumnSpan="2"
-					   VerticalAlignment="Center"
-					   HorizontalAlignment="Center"
-					   FontFamily="Fonts/#Karla"
-					   FontWeight="Light"
-					   FontSize="18"
-					   Padding="5"
-					   Style="{StaticResource buttonStyle}"/>
+			<Button x:Name="GitHubButton"
+					Content="GitHub"
+					BorderThickness="0"
+					Grid.Column="11"
+					Grid.ColumnSpan="2"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					FontFamily="Fonts/#Karla"
+					FontWeight="Light"
+					FontSize="18"
+					Padding="5"
+					Style="{StaticResource buttonStyle}"
+					Click="GitHubButton_Click" />
 
 			<StackPanel Grid.Column="12"
 						Grid.ColumnSpan="2"
@@ -163,27 +168,44 @@
 						   Grid.Column="0"
 						   VerticalAlignment="Center"
 						   HorizontalAlignment="Right"
-						   Style="{StaticResource subHeaderFont}">
+						   Style="{StaticResource subHeaderFont}"
+						   ToolTip="This is how many games you want to simulate!">
 						Number of Games:
 					</Label>
-					<TextBox Grid.Row="0"
-							 Grid.Column="1"
-							 VerticalAlignment="Center"
-							 HorizontalAlignment="Stretch"
-							 Margin="10">
-					</TextBox>
+					<ComboBox x:Name="NumberOfGames"
+							  Grid.Row="0"
+							  Grid.Column="1"
+							  VerticalAlignment="Center"
+							  HorizontalAlignment="Left"
+							  Margin="10"
+							  Background="LightGray"
+							  FontFamily="Fonts\#Karla"
+							  FontSize="18"
+							  Height="25"
+							  Width="100"
+							  SelectedIndex="0">
+						<ComboBox.Foreground>
+							<SolidColorBrush Color="{DynamicResource Slate}" />
+						</ComboBox.Foreground>
+						<ComboBox.BorderBrush>
+							<SolidColorBrush Color="{DynamicResource Slate}" />
+						</ComboBox.BorderBrush>
+					</ComboBox>
 
 					<Label Grid.Row="1"
 						   Grid.Column="0"
 						   VerticalAlignment="Center"
 						   HorizontalAlignment="Right"
-						   Style="{StaticResource subHeaderFont}">
+						   Style="{StaticResource subHeaderFont}"
+						   ToolTip="This applies the Joker's Wild rule. Joker loses to 2 through 6, and beats 7-Ace.">
 						Jokers wild?:
 					</Label>
-					<CheckBox Grid.Row="1"
+					<CheckBox x:Name="JokersWildCheckBox"
+							  Grid.Row="1"
 							  Grid.Column="1"
 							  VerticalAlignment="Center"
-							  Margin="10" RenderTransformOrigin="0.5,0.5"/>
+							  Margin="10" RenderTransformOrigin="0.5,0.5"
+							  Checked="JokersWildCheckBox_Checked" />
 				</Grid>
 			</StackPanel>
 			<StackPanel>
