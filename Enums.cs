@@ -21,6 +21,7 @@ namespace War
 		Queen,
 		King,
 		Ace,
+		Joker = 99,
 	}
 
 	enum Suits
@@ -28,6 +29,35 @@ namespace War
 		Hearts,
 		Spades,
 		Diamonds,
+		Clubs,
+		Wild,
+	}
+
+	// May not be necessary.
+	enum ValuesWithJokers
+	{
+
+		Two = 2,
+		Three = 3,
+		Four = 4,
+		Five = 5,
+		Six = 6,
+		Seven = 7,
+		Eight = 8,
+		Nine = 9,
+		Ten = 10,
+		Jack = 11,
+		Queen = 12,
+		King = 13,
+		Ace = 15,
+	}
+
+	// May not be necesssary.
+	enum SuitsWithJokers
+	{
+		Hearts,
+		Spades,
+		Diamonds, 
 		Clubs,
 	}
 }

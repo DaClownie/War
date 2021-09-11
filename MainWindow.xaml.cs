@@ -20,13 +20,67 @@ namespace War
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		const int SINGLE = 1;
+		const int WAR = 4;
+		static bool gameState = true;
+		static Random random = new();
+
+		public bool JokersAreWild;
+		static List<Card> UnshuffledDeck = new();
+		static List<Card> ShuffledDeck = new();
+		static List<Card> PlayerOne = new();
+		static List<Card> PlayerTwo = new();
+		static List<Card> Pot = new();
+
 		public MainWindow()
 		{
 			InitializeComponent();
-			List<Card> DeckOfCards = new List<Card>();
 			NumberOfGames.ItemsSource = Enumerable.Range(5, 96);
+		}
 
+		private static void CreateUnshuffledDeck(bool jokersAreWild)
+		{
+			for (int i = 2; i <= (int)Values.Ace; i++)
+			{
+				for (int j = 0; j <= (int)Suits.Clubs; j++)
+				{
+					Card card = new((Values)i, (Suits)j);
+					UnshuffledDeck.Add(card);
+				}
+			}
+			if (jokersAreWild)
+			{
+				Card joker1 = new(Values.Joker, Suits.Wild);
+				Card joker2 = new(Values.Joker, Suits.Wild);
+				UnshuffledDeck.Add(joker1);
+				UnshuffledDeck.Add(joker2);
+			}
+		}
+		private static void ShuffleTheUnshuffledDeck()
+		{
+			int deckSize = UnshuffledDeck.Count;
+			for (int i = 0; i < deckSize; i++)
+			{
+				int index = random.Next(UnshuffledDeck.Count);
 
+				ShuffledDeck.Add(UnshuffledDeck[index]);
+				UnshuffledDeck.RemoveAt(index);
+			}
+		}
+		private static void DealTheCardsToThePlayers()
+		{
+			int deckSize = ShuffledDeck.Count;
+			for (int i = 0; i < deckSize; i++)
+			{
+				if (i % 2 == 0)
+				{
+					PlayerOne.Add(ShuffledDeck[i]);
+				}
+				else
+				{
+					PlayerTwo.Add(ShuffledDeck[i]);
+				}
+			}
 		}
 
 		private void MinimizeOnClick(object sender, RoutedEventArgs e)
@@ -52,12 +106,22 @@ namespace War
 
 		private void SimulateButton_Click(object sender, RoutedEventArgs e)
 		{
-			//TODO: Should read all settings, send those to the methods for deck building, initialize the simulation x number of times based on input as well
+			//TODO: Needs Simulation method created, and able to iterated x number of times and saved to a csv file for graphing.
+			//TODO: CsvHelper @ https://https://joshclose.github.io/CsvHelper/getting-started/
+			//TODO: Graphing @ https://https://github.com/Microsoft/InteractiveDataDisplay.WPF
+			CreateUnshuffledDeck(JokersAreWild);
+			ShuffleTheUnshuffledDeck();
+			DealTheCardsToThePlayers();
 		}
 
-		private void JokersWildCheckBox_Checked(object sender, RoutedEventArgs e)
+		private void JokersWildChecked(object sender, RoutedEventArgs e)
 		{
-			//TODO: This will apply a flag that adds the Joker to the deck, and makes it lose to 2-6, beat 7-A.
+			JokersAreWild = true;
+		}
+
+		private void JokersWildUnchecked(object sender, RoutedEventArgs e)
+		{
+			JokersAreWild = false;
 		}
 	}
 }

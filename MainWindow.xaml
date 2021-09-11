@@ -205,7 +205,8 @@
 							  Grid.Column="1"
 							  VerticalAlignment="Center"
 							  Margin="10" RenderTransformOrigin="0.5,0.5"
-							  Checked="JokersWildCheckBox_Checked" />
+							  Checked="JokersWildChecked"
+							  Unchecked="JokersWildUnchecked" />
 				</Grid>
 			</StackPanel>
 			<StackPanel>
